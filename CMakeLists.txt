@@ -18,11 +18,25 @@ set (CMAKE_MODULE_PATH
 
 # Main executable.
 set(cloud_tracer_sources_main
-	src/main.cpp)
+	src/main.cpp
+)
+set(cloud_tracer_headers_main
+)
+set(cloud_tracer_headers_math
+	src/math/vector.h
+)
+set(cloud_tracer_sources_math
+	src/math/vector.cpp
+)
 set(cloud_tracer_sources_all
-	${cloud_tracer_sources_main})
+	${cloud_tracer_sources_main}
+	${cloud_tracer_sources_math}
+)
 set(cloud_tracer_headers_all
-	${cloud_tracer_headers_main})
+	${cloud_tracer_headers_main}
+	${cloud_tracer_headers_math}
+)
 source_group("" FILES ${cloud_tracer_sources_main} ${cloud_tracer_headers_main})
+source_group("math" FILES ${cloud_tracer_sources_math} ${cloud_tracer_headers_math})
 add_executable (clipp ${cloud_tracer_sources_all} ${cloud_tracer_headers_all})
 target_include_directories(clipp PRIVATE src)
